@@ -4,15 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tier Maker</title>
-    <style>
+  <style>
 
-        *, 
-        *::before, 
-        *::after {
+    *, 
+    *::before, 
+    *::after {
             box-sizing: border-box;
-        }
+    }
 
-        body {
+    body {
             background: #111;
             color: #fff;
             font-family: Arial, sans-serif;
@@ -20,38 +20,45 @@
             max-width: 500px;
             padding-inline: 32px;
             user-select: none;
-        }
+    }
 
-        :root {
+    :root {
             --color-s: #ff7f7f;
             --color-a: #ffbf7f;
             --color-b: #ffdf7f;
             --color-c: #ffff7f;
             --color-d: #bfff7f;
             --color-e: #7fff85;
-        }
+    }
 
-        button {
+    button {
             background: transparent;
             border: 0;
             color: #fff;
             cursor: pointer;
-        }
+    }
 
-				.tier {
+		.tier {
 						display: flex;
 						flex-direction: column;
 						border: 1px solid #444;
 						background: #1f1f1f;
+		}
+
+		.row {
+				display: flex;
+				flex-direction: row;
+				border-bottom: 1px solid #111;
+				transition: all .3s ease;
+
+				&.drag-over {
+					background: #555;
+					scale: 1.01;
 				}
 
-				.row {
-						display: flex;
-						flex-direction: row;
-						border-bottom: 1px solid #111;
-				}
+    }
 
-				.label {
+		.label {
 					cursor: pointer;
 					background: var(--level, #09f);
 					color: #333;
@@ -65,20 +72,57 @@
 					& span:focus {
 						outline: 1px solid #fff;
 					}
-				}
+		}
 
-        #top-header {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding-block: 8px;
-        
-        &  img {
-            width: 125px;
-            height: auto;
+		#selector {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			gap: 16px;
+			margin-top: 16px;
+		}
+
+		#selector-buttons {
+      display: flex;
+      gap: 8px;
+      justify-content: center;
+
+      & button,
+      & label {
+        cursor: pointer;
+        transition: all .3s ease;
+        background: #222;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 24px;
+        height: 24px;
+        padding: 4px;
+
+        &:hover {
+          background: #444;
+          scale: 1.1;
         }
+      }
+
+      & svg {
+        width: 100%;
+        height: 100%;
+      }
+    }	
+
+    #top-header {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 32px 0 16px;
+
+      & img {
+        max-width: 125px;
+        height: auto;
+      }
     }
-    </style>
+  </style>
 
 </head>
 <body>
@@ -122,5 +166,28 @@
 			</aside>
 		</div>
     </section>
+
+		<footer id="selector">
+			<section id="	">
+				<label><svg  xmlns="http://www.w3.org/2000/svg"  width="24"  
+					height="24"  viewBox="0 0 24 24"  fill="none"  
+					stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  
+					stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-circle-plus">
+					<path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+					<path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0" />
+					<path d="M9 12h6" /><path d="M12 9v6" /></svg>
+					<input type="file" id="image-input" hidden />
+				</label>
+
+				<label>
+					<svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  
+					viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  
+					stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  
+					class="icon icon-tabler icons-tabler-outline icon-tabler-rotate-clockwise">
+					<path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+						<path d="M4.05 11a8 8 0 1 1 .5 4m-.5 5v-5h5" /></svg>
+				</label>
+		</section>
+		</footer>
 </body>
 </html>
