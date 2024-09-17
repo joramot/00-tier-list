@@ -5,18 +5,76 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tier Maker</title>
     <style>
+
+        *, 
+        *::before, 
+        *::after {
+            box-sizing: border-box;
+        }
+
         body {
             background: #111;
+            color: #fff;
             font-family: Arial, sans-serif;
+            margin: 0 auto;
+            max-width: 500px;
+            padding-inline: 32px;
+            user-select: none;
         }
+
+        :root {
+            --color-s: #ff7f7f;
+            --color-a: #ffbf7f;
+            --color-b: #ffdf7f;
+            --color-c: #ffff7f;
+            --color-d: #bfff7f;
+            --color-e: #7fff85;
+        }
+
+        button {
+            background: transparent;
+            border: 0;
+            color: #fff;
+            cursor: pointer;
+        }
+
+				.tier {
+						display: flex;
+						flex-direction: column;
+						border: 1px solid #444;
+						background: #1f1f1f;
+				}
+
+				.row {
+						display: flex;
+						flex-direction: row;
+						border-bottom: 1px solid #111;
+				}
+
+				.label {
+					cursor: pointer;
+					background: var(--level, #09f);
+					color: #333;
+					font-weight: bold;
+					width: 50px;
+					height: 50px;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+
+					& span:focus {
+						outline: 1px solid #fff;
+					}
+				}
 
         #top-header {
             display: flex;
             justify-content: center;
             align-items: center;
+            padding-block: 8px;
         
         &  img {
-            width: 150px;
+            width: 125px;
             height: auto;
         }
     }
@@ -27,5 +85,42 @@
     <header id="top-header">
         <img src="https://tiermaker.com/images/tiermaker-logo.png" alt="">
     </header>
+    <section class="tier">
+      <div class="row">
+        <aside class="label" style="--level: var(--color-s)">
+					<span contenteditable="true">S</span>
+        </aside>
+      </div>
+
+			<div class="row"></div>
+        <aside class="label" style="--level: var(--color-a)">
+					<span contenteditable="true">A</span>
+        </aside>
+      </div>
+
+			<div class="row"></div>
+        <aside class="label" style="--level: var(--color-b)">
+					<span contenteditable="true">B</span>
+        </aside>
+      </div>
+
+			<div class="row"></div>
+        <aside class="label" style="--level: var(--color-c)">
+					<span contenteditable="true">C</span>
+        </aside>
+      </div>
+
+			<div class="row"></div>
+        <aside class="label" style="--level: var(--color-d)">
+					<span contenteditable="true">D</span>
+        </aside>
+      </div>
+
+			<div class="row"></div>
+			<aside class="label" style="--level: var(--color-e)">
+				<span contenteditable="true">E</span>
+			</aside>
+		</div>
+    </section>
 </body>
 </html>
